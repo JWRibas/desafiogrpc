@@ -41,7 +41,7 @@ Projeto criado utilizando Docker e Docker Compose em um ambiente Ubuntu com WSL2
 
 1. Para acessar diretorio seguir os passos a seguir:
     - executar o comando `show package´ para listar os pacotes
-    - executar o comando `package desafiogrpc` para acessar o pacote product
+    - executar o comando `package github.com.codeedu.codepix` para acessar o pacote product
     - executar o comando `show service` para listar os serviços
     - executar o comando `service Product` para acessar o serviço product
     - executar o comando `call CreateProduct` para criar um novo produto
