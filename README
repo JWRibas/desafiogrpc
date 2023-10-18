@@ -1,0 +1,46 @@
+----Conclusão do desafio proposto pela FullCycle----
+
+##Desafio 01 - gRPC
+FASE 01
+Informações do desafio
+Dado o seguinte protofile gRPC:
+https://gist.github.com/argentinaluiz/8a2e1a7a32da3d1b107d88ec9f1007b2
+
+
+Crie um servidor gRPC em Golang que realize as duas operações:
+
+
+Criar produtos
+Consultar produtos
+
+A aplicação deve usar o SQLite como banco de dados e o GORM como ORM. Use o modo AutoMigrate para gerar as tabelas automaticamente.
+
+
+Você deve disponibilizar um o script main.go que a rodar go run main.go deve levantar o servidor e deixar a porta 50051 acessível via localhost.
+
+---------------------------------------------------------------------------------------------------------------------------
+
+##Configuração do ambiente
+
+Projeto criado utilizando Docker e Docker Compose em um ambiente Ubuntu com WSL2.
+
+##Instruções para rodar o projeto
+
+1. Clone o repositório
+2. Acesse a pasta do projeto
+3. Execute o comando `docker-compose up -d`
+4. Acesse o container do servidor com o comando `docker exec -it desafiogrpc-app-1 bash`
+5. Execute o comando `go run main.go`
+
+6. Após servidor iniciar, voltar ao bash e execute o comando `evans -r repl` para acessar o client
+
+##EVANS
+
+1. Para acessar diretorio seguir os passos a seguir:
+    - executar o comando `show package´ para listar os pacotes
+    - executar o comando `package desafiogrpc` para acessar o pacote product
+    - executar o comando `show service` para listar os serviços
+    - executar o comando `service Product` para acessar o serviço product
+    - executar o comando `call CreateProduct` para criar um novo produto
+    - executar o comando `call FindProducts` para consultar todos os produtos
+obs. Para sair do Evans, executar o comando `exit`
