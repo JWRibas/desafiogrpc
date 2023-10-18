@@ -5,6 +5,7 @@ import (
 	"desafiogrpc/application/grpc/pb"
 	"desafiogrpc/application/grpc/usecase"
 	"desafiogrpc/domain/model"
+	"hash/fnv"
 )
 
 type ProductGrpcService struct {
@@ -24,9 +25,13 @@ func (p *ProductGrpcService) CreateProduct(ctx context.Context, in *pb.CreatePro
 		return nil, err
 	}
 
+	hash := fnv.New32a()
+	hash.Write([]byte(product.ID))
+	intID := int32(hash.Sum32())
+
 	return &pb.CreateProductResponse{
 		Product: &pb.Product{
-			Id:          product.ID,
+			Id:          intID,
 			Name:        product.Name,
 			Description: product.Description,
 			Price:       float32(product.Price),
@@ -42,8 +47,12 @@ func (p *ProductGrpcService) FindProducts(ctx context.Context, in *pb.FindProduc
 
 	pbProducts := make([]*pb.Product, len(products))
 	for i, product := range products {
+		hash := fnv.New32a()
+		hash.Write([]byte(product.ID))
+		intID := int32(hash.Sum32())
+
 		pbProducts[i] = &pb.Product{
-			Id:          product.ID,
+			Id:          intID,
 			Name:        product.Name,
 			Description: product.Description,
 			Price:       float32(product.Price),
