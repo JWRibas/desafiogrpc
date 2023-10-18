@@ -1,6 +1,7 @@
 ----Conclusão do desafio proposto pela FullCycle----
 
 ##Desafio 01 - gRPC
+
 FASE 01
 Informações do desafio
 Dado o seguinte protofile gRPC:
@@ -19,6 +20,8 @@ A aplicação deve usar o SQLite como banco de dados e o GORM como ORM. Use o mo
 Você deve disponibilizar um o script main.go que a rodar go run main.go deve levantar o servidor e deixar a porta 50051 acessível via localhost.
 
 ---------------------------------------------------------------------------------------------------------------------------
+
+IMPORTANTE ---- ARQUIVOS .env e .ideia FORAM ADICIONADOS AO ARQUIVO PARA MELHOR VISUALIZAÇÃO DO PROJETO ----
 
 ##Configuração do ambiente
 
