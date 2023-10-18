@@ -19,7 +19,7 @@ func (p *ProductGrpcService) CreateProduct(ctx context.Context, in *pb.CreatePro
 		return nil, err
 	}
 
-	err = p.ProductUseCase.AddProduct(product)
+	product, err = p.productUseCase.AddProduct(product.Name, product.Description, product.Price)
 	if err != nil {
 		return nil, err
 	}
@@ -35,7 +35,7 @@ func (p *ProductGrpcService) CreateProduct(ctx context.Context, in *pb.CreatePro
 }
 
 func (p *ProductGrpcService) FindProducts(ctx context.Context, in *pb.FindProductsRequest) (*pb.FindProductsResponse, error) {
-	products, err := p.ProductUseCase.FindAllProducts()
+	products, err := p.productUseCase.FindAllProducts()
 	if err != nil {
 		return &pb.FindProductsResponse{}, err
 	}

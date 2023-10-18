@@ -20,11 +20,6 @@ type Product struct {
 	Price       float64 `json:"price" gorm:"type:float" valid:"required"`
 }
 
-func (product *Product) Error() string {
-	//TODO implement me
-	panic("implement me")
-}
-
 func (product *Product) isValid() error {
 	_, err := govalidator.ValidateStruct(product)
 	if err != nil {
